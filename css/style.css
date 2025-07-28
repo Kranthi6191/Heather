@@ -1,20 +1,32 @@
 /* =========================================
+   Import Playfair Display
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+/* =========================================
    Variables & Global Settings
    ========================================= */
 :root {
-  --clr-primary:       #f57c00;  /* burnt orange */
-  --clr-secondary:     #f5f5dc;  /* beige */
-  --clr-accent:        #00bfa6;  /* teal */
-  --clr-neutral:       #f5f5f5;  /* light gray */
-  --clr-text:          #333333;
-  --clr-light:         #ffffff;
+  --clr-primary:        #f57c00;  /* burnt orange */
+  --clr-secondary:      #f5f5dc;  /* beige */
+  --clr-accent:         #00bfa6;  /* teal */
+  --clr-neutral:        #f5f5f5;  /* light gray */
+  --clr-text:           #333333;
+  --clr-light:          #ffffff;
 
-  --ff-heading:        'Poppins', sans-serif;
-  --ff-body:           'Open Sans', sans-serif;
+  /* Heading colors */
+  --clr-heading-dark:   #222222;  /* charcoal for light backgrounds */
+  --clr-heading-light:  #ffffff;  /* white for dark backgrounds */
+  --clr-heading-accent: var(--clr-accent);
 
-  --transition:        0.3s ease;
-  --section-padding-y: clamp(2rem, 5vw, 6rem);
-  --gap-clamp:         clamp(1rem, 2.5vw, 4rem);
+  /* Typography */
+  --ff-heading:         'Playfair Display', serif;
+  --ff-body:            'Open Sans', sans-serif;
+
+  /* Layout & motion */
+  --transition:         0.3s ease;
+  --section-padding-y:  clamp(2rem, 5vw, 6rem);
+  --gap-clamp:          clamp(1rem, 2.5vw, 4rem);
 }
 
 /* =========================================
@@ -104,7 +116,6 @@ body {
   font-weight: 600;
   text-decoration: none;
   transition: color var(--transition);
-  position: relative;
 }
 
 .site-nav a:hover,
@@ -200,11 +211,12 @@ body {
   align-items: center;
   gap: var(--gap-clamp);
   padding: var(--section-padding-y) 1rem;
-  color: var(--clr-light);
+  background: none;
 }
 
 .hero__content h2 {
   font-family: var(--ff-heading);
+  color: var(--clr-heading-light);
   font-size: clamp(2rem, 5vw, 3rem);
   margin-bottom: 1rem;
 }
@@ -249,7 +261,6 @@ body {
     grid-template-columns: 1fr;
     text-align: center;
   }
-
   .hero__image-wrapper {
     margin-top: var(--gap-clamp);
   }
@@ -269,6 +280,17 @@ body {
     var(--clr-accent)   100%
   );
   color: var(--clr-light);
+}
+
+/* =========================================
+   Section Headings
+   ========================================= */
+.section h2,
+.about h2 {
+  font-family: var(--ff-heading);
+  color: var(--clr-heading-dark);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-bottom: 1rem;
 }
 
 /* =========================================
@@ -462,7 +484,8 @@ body {
   .hero__content h2 {
     font-size: clamp(1.5rem, 4vw, 2rem);
   }
-  .blog-post h2 {
-    font-size: 1.5rem;
+  .section h2,
+  .about h2 {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
   }
 }
