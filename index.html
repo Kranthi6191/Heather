@@ -2,24 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Heather Rounds</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Heather Rounds | Home</title>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@700&display=swap" 
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <h1>Heather Rounds</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+  <header class="site-header">
+    <div class="container nav-container">
+      <h1 class="logo">Heather Rounds</h1>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Get in Touch</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
-  <main>
-    <h2>Welcome to My Blog</h2>
-    <p>This is a sample portfolio and blog for Heather Rounds.</p>
-  </main>
-  <script src="script.js"></script>
+
+  <section class="hero" style="background: url('assets/images/hero.jpg') center/cover;">
+    <div class="hero-content fade-in-up">
+      <h2>Thoughts, Stories & Inspiration</h2>
+      <p>Welcome to my corner of the web—where words meet heart.</p>
+      <a href="blog.html" class="btn">Explore Blog</a>
+    </div>
+  </section>
+
+  <section class="section about">
+    <div class="container fade-in-up">
+      <h2>About Heather</h2>
+      <p>I'm a writer, traveler, and lifelong learner. Here, I share minimalist living tips, journaling prompts, and honest reflections.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Heather Rounds. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
