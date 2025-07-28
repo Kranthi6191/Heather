@@ -7,6 +7,9 @@
   --transition: 0.3s ease;
   --ff-heading: 'Poppins', sans-serif;
   --ff-body: 'Open Sans', sans-serif;
+
+  /* Hero-specific */
+  --hero-gap: clamp(1.5rem, 6vw, 5rem);
 }
 
 /* Global Reset */
@@ -59,12 +62,13 @@ body {
   text-decoration: none;
   font-weight: 600;
   cursor: pointer;
-  transition: background var(--transition);
+  transition: background var(--transition), transform var(--transition);
 }
 
 .btn:hover,
 .contact-form button:hover {
   background: #e66b00;
+  transform: translateY(-2px);
 }
 
 /* Container */
@@ -203,25 +207,69 @@ body {
   }
 }
 
-/* Hero */
+/* Updated Hero Styles */
 .hero {
-  height: 60vh;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+  gap: var(--hero-gap);
+  padding: var(--hero-gap) 1rem;
+}
+
+.hero__content {
   color: var(--clr-light);
 }
 
-.hero-content h2 {
+.hero__content h2 {
   font-family: var(--ff-heading);
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   margin-bottom: 1rem;
 }
 
-.hero-content p {
-  font-size: 1.1rem;
+.hero__content p {
+  font-size: 1.15rem;
   margin-bottom: 1.5rem;
+}
+
+.hero__image-wrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.hero__image-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.3),
+    rgba(255, 255, 255, 0.1)
+  );
+}
+
+.hero__image-wrapper:hover .hero__image {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero__image-wrapper {
+    margin-top: var(--hero-gap);
+  }
 }
 
 /* Sections */
@@ -250,7 +298,6 @@ body {
 
 .post-card img {
   width: 100%;
-  height: auto;
   display: block;
   object-fit: cover;
   border-bottom: 1px solid #eee;
@@ -298,8 +345,6 @@ body {
 
 .blog-post img {
   width: 100%;
-  height: auto;
-  display: block;
   margin: 1.5rem 0;
   border-radius: 8px;
   object-fit: cover;
@@ -362,12 +407,11 @@ body {
   font-size: 0.9rem;
 }
 
-/* Responsiveness */
+/* Responsive adjustments */
 @media (max-width: 480px) {
-  .hero-content h2 {
+  .hero__content h2 {
     font-size: 2rem;
   }
-
   .blog-post h2 {
     font-size: 1.5rem;
   }
