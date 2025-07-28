@@ -216,7 +216,7 @@ body {
 
 .hero__content h2 {
   font-family: var(--ff-heading);
-  color: var(--clr-heading-light);
+  color: var(--clr-heading-dark); /* ← now using charcoal for better contrast */
   font-size: clamp(2rem, 5vw, 3rem);
   margin-bottom: 1rem;
 }
