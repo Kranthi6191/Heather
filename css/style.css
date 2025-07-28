@@ -1,18 +1,25 @@
-/* Theme Colors & Typography */
+/* =========================================
+   Variables & Global Settings
+   ========================================= */
 :root {
-  --clr-primary: #f57c00;
-  --clr-secondary: #f5f5dc;
-  --clr-text: #333;
-  --clr-light: #fff;
-  --transition: 0.3s ease;
-  --ff-heading: 'Poppins', sans-serif;
-  --ff-body: 'Open Sans', sans-serif;
+  --clr-primary:       #f57c00;  /* burnt orange */
+  --clr-secondary:     #f5f5dc;  /* beige */
+  --clr-accent:        #00bfa6;  /* teal */
+  --clr-neutral:       #f5f5f5;  /* light gray */
+  --clr-text:          #333333;
+  --clr-light:         #ffffff;
 
-  /* Hero-specific */
-  --hero-gap: clamp(1.5rem, 6vw, 5rem);
+  --ff-heading:        'Poppins', sans-serif;
+  --ff-body:           'Open Sans', sans-serif;
+
+  --transition:        0.3s ease;
+  --section-padding-y: clamp(2rem, 5vw, 6rem);
+  --gap-clamp:         clamp(1rem, 2.5vw, 4rem);
 }
 
-/* Global Reset */
+/* =========================================
+   Reset & Base Styles
+   ========================================= */
 *,
 *::before,
 *::after {
@@ -29,11 +36,13 @@ html {
 body {
   font-family: var(--ff-body);
   color: var(--clr-text);
-  background: var(--clr-light);
+  background: var(--clr-neutral);
   line-height: 1.6;
 }
 
-/* Utility Animations */
+/* =========================================
+   Utility Animations
+   ========================================= */
 .fade-in-up {
   opacity: 0;
   animation: fadeInUp 0.8s var(--transition) both;
@@ -50,40 +59,24 @@ body {
   }
 }
 
-/* Buttons */
-.btn,
-.contact-form button {
-  display: inline-block;
-  background: var(--clr-primary);
-  color: var(--clr-light);
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background var(--transition), transform var(--transition);
-}
-
-.btn:hover,
-.contact-form button:hover {
-  background: #e66b00;
-  transform: translateY(-2px);
-}
-
-/* Container */
+/* =========================================
+   Container
+   ========================================= */
 .container {
   max-width: 1024px;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
-/* Header & Nav */
+/* =========================================
+   Header & Navigation
+   ========================================= */
 .site-header {
-  background: var(--clr-secondary);
+  background: var(--clr-light);
+  border-bottom: 1px solid #e0e0e0;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
 }
 
 .nav-container {
@@ -93,18 +86,11 @@ body {
   height: 4rem;
 }
 
-.logo {
-  font-family: var(--ff-heading);
-  font-size: 1.5rem;
-}
-
 .logo a {
-  text-decoration: none;
+  font-family: var(--ff-heading);
+  font-size: clamp(1.5rem, 4vw, 2rem);
   color: var(--clr-primary);
-}
-
-.logo a:hover {
-  opacity: 0.8;
+  text-decoration: none;
 }
 
 .site-nav ul {
@@ -114,12 +100,11 @@ body {
 }
 
 .site-nav a {
-  text-decoration: none;
   color: var(--clr-text);
   font-weight: 600;
+  text-decoration: none;
   transition: color var(--transition);
   position: relative;
-  z-index: 2;
 }
 
 .site-nav a:hover,
@@ -127,7 +112,14 @@ body {
   color: var(--clr-primary);
 }
 
-/* Mobile Menu */
+.site-nav a:focus {
+  outline: 2px solid var(--clr-accent);
+  outline-offset: 2px;
+}
+
+/* =========================================
+   Mobile Menu
+   ========================================= */
 .nav-toggle {
   display: none;
   background: none;
@@ -181,14 +173,14 @@ body {
     top: 4rem;
     left: 0;
     right: 0;
-    background: var(--clr-secondary);
+    background: var(--clr-light);
     overflow: hidden;
     max-height: 0;
     transition: max-height var(--transition), padding var(--transition);
   }
 
   .site-nav.open {
-    max-height: 200px;
+    max-height: 240px;
     padding: 1rem 0;
   }
 
@@ -197,26 +189,17 @@ body {
     align-items: center;
     gap: 1rem;
   }
-
-  .site-nav li {
-    padding: 0.5rem 0;
-  }
-
-  .site-nav a {
-    font-size: 1.1rem;
-  }
 }
 
-/* Updated Hero Styles */
+/* =========================================
+   Hero Section
+   ========================================= */
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: var(--hero-gap);
-  padding: var(--hero-gap) 1rem;
-}
-
-.hero__content {
+  gap: var(--gap-clamp);
+  padding: var(--section-padding-y) 1rem;
   color: var(--clr-light);
 }
 
@@ -227,7 +210,7 @@ body {
 }
 
 .hero__content p {
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
   margin-bottom: 1.5rem;
 }
 
@@ -238,15 +221,6 @@ body {
   aspect-ratio: 16/9;
 }
 
-.hero__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  transition: transform 0.6s ease;
-}
-
 .hero__image-wrapper::before {
   content: "";
   position: absolute;
@@ -254,8 +228,16 @@ body {
   background: linear-gradient(
     135deg,
     rgba(0, 0, 0, 0.3),
-    rgba(255, 255, 255, 0.1)
+    rgba(245, 124, 0, 0.2)
   );
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s ease;
 }
 
 .hero__image-wrapper:hover .hero__image {
@@ -267,17 +249,90 @@ body {
     grid-template-columns: 1fr;
     text-align: center;
   }
+
   .hero__image-wrapper {
-    margin-top: var(--hero-gap);
+    margin-top: var(--gap-clamp);
   }
 }
 
-/* Sections */
+/* =========================================
+   Sections & Alternate Background
+   ========================================= */
 .section {
-  padding: 4rem 0;
+  padding: var(--section-padding-y) 1rem;
 }
 
-/* Blog Grid */
+.section.alt-bg {
+  background: linear-gradient(
+    to right,
+    var(--clr-secondary) 0%,
+    var(--clr-accent)   100%
+  );
+  color: var(--clr-light);
+}
+
+/* =========================================
+   Buttons & Links
+   ========================================= */
+.btn,
+.contact-form button {
+  display: inline-block;
+  background: linear-gradient(45deg, var(--clr-primary), var(--clr-secondary));
+  color: var(--clr-light);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--transition), filter var(--transition);
+}
+
+.btn:hover,
+.contact-form button:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+}
+
+.btn:focus,
+.contact-form button:focus {
+  outline: 2px solid var(--clr-accent);
+  outline-offset: 2px;
+}
+
+/* =========================================
+   Images & Wrappers
+   ========================================= */
+.image-wrapper,
+.hero__image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.image-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 191, 166, 0.2)
+  );
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* =========================================
+   Blog Post Cards
+   ========================================= */
 .blog-list .blog-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -288,19 +343,25 @@ body {
   background: var(--clr-light);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform var(--transition);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .post-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .post-card img {
   width: 100%;
-  display: block;
+  height: 200px;
   object-fit: cover;
-  border-bottom: 1px solid #eee;
+  filter: brightness(0.9) contrast(1.05) saturate(1.1);
+  transition: filter 0.4s ease;
+}
+
+.post-card:hover img {
+  filter: brightness(1) contrast(1.1) saturate(1.2);
 }
 
 .post-content {
@@ -309,12 +370,12 @@ body {
 
 .post-content h3 {
   font-family: var(--ff-heading);
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
   margin-bottom: 0.5rem;
-  font-size: 1.2rem;
 }
 
 .post-content small {
-  color: #666;
+  color: #666666;
   font-size: 0.9rem;
   display: block;
   margin-bottom: 0.5rem;
@@ -325,37 +386,9 @@ body {
   line-height: 1.5;
 }
 
-.post-content .btn {
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-}
-
-/* Blog Post Page */
-.blog-post {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
-.blog-post h2 {
-  font-family: var(--ff-heading);
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.blog-post img {
-  width: 100%;
-  margin: 1.5rem 0;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.blog-post p {
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-/* Contact Form */
+/* =========================================
+   Contact Form
+   ========================================= */
 .contact-section .contact-form {
   max-width: 600px;
   margin: 0 auto;
@@ -366,15 +399,16 @@ body {
   width: 100%;
   padding: 0.75rem;
   margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  transition: border-color var(--transition);
+  border: 1px solid #cccccc;
+  border-radius: 6px;
   font-family: var(--ff-body);
+  transition: border-color var(--transition), box-shadow var(--transition);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-color: var(--clr-primary);
+  box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.2);
   outline: none;
 }
 
@@ -383,7 +417,9 @@ body {
   border-color: #e66b00;
 }
 
-/* Success Message */
+/* =========================================
+   Success Message
+   ========================================= */
 .success-message {
   background: #dff0d8;
   color: #3c763d;
@@ -399,18 +435,32 @@ body {
   display: block;
 }
 
-/* Footer */
+/* =========================================
+   Footer
+   ========================================= */
 .site-footer {
   background: var(--clr-secondary);
+  color: var(--clr-light);
   text-align: center;
-  padding: 2rem 0;
+  padding: var(--section-padding-y) 1rem;
   font-size: 0.9rem;
 }
 
-/* Responsive adjustments */
+.site-footer a {
+  color: var(--clr-light);
+  text-decoration: underline;
+}
+
+.site-footer a:hover {
+  opacity: 0.8;
+}
+
+/* =========================================
+   Responsive Breakpoints
+   ========================================= */
 @media (max-width: 480px) {
   .hero__content h2 {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
   }
   .blog-post h2 {
     font-size: 1.5rem;
