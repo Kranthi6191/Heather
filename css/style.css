@@ -283,6 +283,33 @@ body {
   font-size: 0.9rem;
 }
 
+/* Blog Post Page */
+.blog-post {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.blog-post h2 {
+  font-family: var(--ff-heading);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.blog-post img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.blog-post p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
 /* Contact Form */
 .contact-section .contact-form {
   max-width: 600px;
@@ -339,5 +366,9 @@ body {
 @media (max-width: 480px) {
   .hero-content h2 {
     font-size: 2rem;
+  }
+
+  .blog-post h2 {
+    font-size: 1.5rem;
   }
 }
