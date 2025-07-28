@@ -2,31 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog - Heather Rounds</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Heather Rounds | Blog</title>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@700&display=swap" 
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <h1>Heather's Blog</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+  <header class="site-header">
+    <div class="container nav-container">
+      <h1 class="logo">Heather Rounds</h1>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+          <li><a href="contact.html">Get in Touch</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
-  <main class="blog-posts">
-    <article class="post-card">
-      <h2>The Art of Stillness</h2>
-      <p class="date">July 20, 2025</p>
-      <p>A reflection on the moments in life that ask us to pause.</p>
-    </article>
-    <article class="post-card">
-      <h2>Fragments of the City</h2>
-      <p class="date">July 15, 2025</p>
-      <p>Exploring the poetic fragments found in the urban landscape.</p>
-    </article>
-  </main>
+
+  <section class="section blog-list">
+    <div class="container">
+      <h2 class="fade-in-up">Latest Posts</h2>
+      <div class="blog-grid">
+        <!-- Post 1 -->
+        <article class="post-card fade-in-up">
+          <img src="assets/images/post1.jpg" alt="Finding Calm in Clutter">
+          <div class="post-content">
+            <h3>Finding Calm in Clutter</h3>
+            <small>June 15, 2025</small>
+            <p>Discover simple steps to declutter your mind and space without overwhelm.</p>
+            <a href="#" class="btn">Read More</a>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="post-card fade-in-up" style="animation-delay:0.2s;">
+          <img src="assets/images/post2.jpg" alt="Journaling Prompts for Growth">
+          <div class="post-content">
+            <h3>Journaling Prompts for Growth</h3>
+            <small>July 1, 2025</small>
+            <p>10 thought-provoking prompts to uncover hidden dreams and ambitions.</p>
+            <a href="#" class="btn">Read More</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Heather Rounds. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
