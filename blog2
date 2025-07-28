@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How to Build a Portfolio Website | Heather Rounds</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <h1 class="logo"><a href="index.html">Heather Rounds</a></h1>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+      <nav class="site-nav" role="navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+          <li><a href="contact.html">Get in Touch</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Blog Content -->
+  <main class="container fade-in-up">
+    <article class="blog-post">
+      <h2>How to Build a Portfolio Website</h2>
+      <img src="assets/images/blog1.jpg" alt="Portfolio Website">
+      <p>Your portfolio is your digital handshake. In this post, we’ll explore how to build a personal site that reflects your skills, personality, and goals.</p>
+      <p>Start with a clean layout, use consistent fonts, and highlight your best work. Tools like GitHub Pages, Netlify, and Figma can help you design and deploy quickly.</p>
+      <p>Don’t forget to include a contact form, social links, and a blog to share your journey!</p>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Heather Rounds. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
