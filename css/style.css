@@ -39,17 +39,21 @@ body {
 }
 
 /* Buttons */
-.btn {
+.btn,
+.contact-form button {
   display: inline-block;
   background: var(--clr-primary);
   color: var(--clr-light);
   padding: 0.75rem 1.5rem;
+  border: none;
   border-radius: 4px;
   text-decoration: none;
   font-weight: 600;
+  cursor: pointer;
   transition: background var(--transition);
 }
-.btn:hover {
+.btn:hover,
+.contact-form button:hover {
   background: #e66b00;
 }
 
@@ -76,7 +80,13 @@ body {
 .logo {
   font-family: var(--ff-heading);
   font-size: 1.5rem;
+}
+.logo a {
+  text-decoration: none;
   color: var(--clr-primary);
+}
+.logo a:hover {
+  opacity: 0.8;
 }
 .site-nav ul {
   list-style: none;
@@ -131,7 +141,11 @@ body {
 .nav-toggle.active .hamburger::after {
   transform: rotate(-45deg) translate(5px, -5px);
 }
+
 @media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
   .site-nav {
     position: absolute;
     top: 4rem;
@@ -140,14 +154,22 @@ body {
     background: var(--clr-secondary);
     overflow: hidden;
     max-height: 0;
-    transition: max-height var(--transition);
+    transition: max-height var(--transition), padding var(--transition);
   }
   .site-nav.open {
     max-height: 200px;
+    padding: 1rem 0;
   }
   .site-nav ul {
     flex-direction: column;
-    padding: 1rem 0;
+    align-items: center;
+    gap: 1rem;
+  }
+  .site-nav li {
+    padding: 0.5rem 0;
+  }
+  .site-nav a {
+    font-size: 1.1rem;
   }
 }
 
@@ -229,6 +251,25 @@ body {
 .contact-form textarea:focus {
   border-color: var(--clr-primary);
   outline: none;
+}
+.contact-form input:invalid,
+.contact-form textarea:invalid {
+  border-color: #e66b00;
+}
+
+/* Success Message */
+.success-message {
+  background: #dff0d8;
+  color: #3c763d;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+  font-size: 1rem;
+  animation: fadeInUp 0.6s ease both;
+  display: none;
+}
+.success-message.show {
+  display: block;
 }
 
 /* Footer */
