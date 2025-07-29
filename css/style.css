@@ -462,14 +462,14 @@ body {
    ========================================= */
 .site-footer {
   background: var(--clr-secondary);
-  color: var(--clr-light);
+  color: var(--clr-dark);
   text-align: center;
   padding: var(--section-padding-y) 1rem;
   font-size: 0.9rem;
 }
 
 .site-footer a {
-  color: var(--clr-dark);
+  color: var(--clr-light);
   text-decoration: underline;
 }
 
