@@ -1,4 +1,3 @@
-// js/wordle.js
 const words = ["APPLE", "GRAPE", "MANGO", "BERRY", "LEMON"];
 const answer = words[Math.floor(Math.random() * words.length)];
 let currentGuess = "";
@@ -8,7 +7,7 @@ const board = document.getElementById("wordle-board");
 const message = document.getElementById("message");
 const keyboard = document.getElementById("keyboard");
 
-// Create 6x5 board
+// Create board
 for (let r = 0; r < 6; r++) {
   const rowDiv = document.createElement("div");
   rowDiv.classList.add("row");
@@ -20,7 +19,7 @@ for (let r = 0; r < 6; r++) {
   board.appendChild(rowDiv);
 }
 
-// Build keyboard
+// Create keyboard
 "QWERTYUIOPASDFGHJKLZXCVBNM".split("").forEach(letter => {
   const btn = document.createElement("button");
   btn.textContent = letter;
@@ -31,6 +30,7 @@ const enterBtn = document.createElement("button");
 enterBtn.textContent = "Enter";
 enterBtn.addEventListener("click", checkGuess);
 keyboard.appendChild(enterBtn);
+
 const delBtn = document.createElement("button");
 delBtn.textContent = "Del";
 delBtn.addEventListener("click", deleteLetter);
@@ -60,6 +60,7 @@ function checkGuess() {
     message.textContent = "Word must be 5 letters!";
     return;
   }
+
   const rowTiles = board.children[row].children;
   for (let i = 0; i < 5; i++) {
     if (currentGuess[i] === answer[i]) {
@@ -70,6 +71,7 @@ function checkGuess() {
       rowTiles[i].style.background = "grey";
     }
   }
+
   if (currentGuess === answer) {
     message.textContent = "🎉 You Win!";
   } else if (row === 5) {
