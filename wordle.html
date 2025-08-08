@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wordle Game</title>
+  <!-- Link existing CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo"><a href="index.html">My Website</a></div>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="wordle.html" class="active">Wordle</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Game Section -->
+  <main class="container">
+    <h1>Wordle</h1>
+    <div id="wordle-board" class="wordle-board"></div>
+    <div id="keyboard" class="keyboard"></div>
+    <p id="message" class="message"></p>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2025 My Website</p>
+  </footer>
+
+  <!-- Existing Site JS -->
+  <script src="js/main.js"></script>
+  <!-- Game Logic -->
+  <script src="js/wordle.js"></script>
+</body>
+</html>
