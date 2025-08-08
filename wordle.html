@@ -4,12 +4,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wordle Game</title>
-  <!-- Link existing CSS -->
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Wordle-specific styles */
+    .wordle-board {
+      display: grid;
+      grid-template-rows: repeat(6, 50px);
+      gap: 5px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: repeat(5, 50px);
+      gap: 5px;
+    }
+    .tile {
+      background: #222;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      border: 2px solid #555;
+    }
+    .keyboard {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
+    }
+    .keyboard button {
+      padding: 10px;
+      border: none;
+      background: #444;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .keyboard button:hover {
+      background: #666;
+    }
+    .message {
+      text-align: center;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Site Navigation -->
+  <!-- Header -->
   <header class="site-header">
     <div class="container nav-container">
       <div class="logo"><a href="index.html">My Website</a></div>
@@ -23,7 +71,7 @@
     </div>
   </header>
 
-  <!-- Game Section -->
+  <!-- Game -->
   <main class="container">
     <h1>Wordle</h1>
     <div id="wordle-board" class="wordle-board"></div>
@@ -36,9 +84,7 @@
     <p>&copy; 2025 My Website</p>
   </footer>
 
-  <!-- Existing Site JS -->
   <script src="js/main.js"></script>
-  <!-- Game Logic -->
   <script src="js/wordle.js"></script>
 </body>
 </html>
